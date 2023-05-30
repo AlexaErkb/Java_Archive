@@ -1,0 +1,26 @@
+<div th:fragment="header">
+    <header>
+        <div class="navbar navbar-dark bg-dark box-shadow d-flex align-items-center justify-content-between w-100">
+            <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center justify-content-between w-50">
+                    <strong>My library</strong>
+                    <strong class="text-warning bg-dark" th:text="${books.size}+ ' book(s) in db'"></strong>
+                    <strong class="text-success bg-dark" th:inline="text">Hello <span sec:authentication="name"></span></strong>
+                </a>
+            </div>
+                    
+                        <form th:action="@{/logout}" method="post">
+                            <button type="submit" class="btn btn-info">Sign Out</button>
+                        </form>
+                    
+                    
+                    
+                    <!-- <form action="/books/add" method="post"> -->
+                        <!-- <button type="submit" class="btn btn-secondary btn-lg">Add new book</button> -->
+<!--                    <button type="button" class="btn btn-secondary btn-lg">Delete selected</button>-->
+                    <!-- </form> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        </div>
+    </header>
+</div>

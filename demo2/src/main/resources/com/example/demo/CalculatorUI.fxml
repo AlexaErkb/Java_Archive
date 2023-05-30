@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0"
+            xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo.CalculatorUIController"
+>
+    <BorderPane prefHeight="300.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <top>
+            <TextField fx:id="out" alignment="CENTER_RIGHT" promptText="0">
+                <font>
+                    <Font size="50.0"/>
+                </font>
+            </TextField>
+        </top>
+        <center>
+            <GridPane BorderPane.alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                    <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                    <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                    <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints percentHeight="25" vgrow="ALWAYS"/>
+                    <RowConstraints percentHeight="25" vgrow="ALWAYS"/>
+                    <RowConstraints percentHeight="25" vgrow="ALWAYS"/>
+                    <RowConstraints percentHeight="25" vgrow="ALWAYS"/>
+                </rowConstraints>
+                <Button mnemonicParsing="false" onAction="#numClick" text="7" styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#numClick" text="8" GridPane.columnIndex="1"
+                        styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#numClick" text="9" GridPane.columnIndex="2"
+                        styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#numClick" text="4" GridPane.rowIndex="1"
+                        styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#numClick" text="5" GridPane.columnIndex="1"
+                        GridPane.rowIndex="1" styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#numClick" text="6" GridPane.columnIndex="2"
+                        GridPane.rowIndex="1" styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#opClick" text="X" GridPane.columnIndex="3"
+                        GridPane.rowIndex="2" styleClass="button2"/>
+                <Button mnemonicParsing="false" onAction="#numClick" text="1" GridPane.rowIndex="2"
+                        styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#numClick" text="2" GridPane.columnIndex="1"
+                        GridPane.rowIndex="2" styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#numClick" text="3" GridPane.columnIndex="2"
+                        GridPane.rowIndex="2" styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#opClick" text="-" GridPane.columnIndex="3"
+                        GridPane.rowIndex="1" styleClass="button2"/>
+                <Button mnemonicParsing="false" onAction="#opClick" text="/" GridPane.columnIndex="3"
+                        GridPane.rowIndex="3" styleClass="button2"/>
+                <Button mnemonicParsing="false" onAction="#opClick" text="=" GridPane.columnIndex="1"
+                        GridPane.rowIndex="3" styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#numClick" text="0" GridPane.columnIndex="0"
+                        GridPane.rowIndex="3" styleClass="button1"/>
+                <Button mnemonicParsing="false" onAction="#opClick" text="+" GridPane.columnIndex="3"
+                        GridPane.rowIndex="0" styleClass="button2"/>
+                <Button mnemonicParsing="false" onAction="#delClick" text="C" GridPane.columnIndex="2"
+                        GridPane.rowIndex="3" styleClass="button2"/>
+            </GridPane>
+        </center>
+    </BorderPane>
+</AnchorPane>

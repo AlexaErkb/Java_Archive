@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e5f4ff;" stylesheets="@Button.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logindisplay.AutoLogin">
+   <top>
+      <AnchorPane prefHeight="90.0" prefWidth="588.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="140.0" layoutY="35.0" text="Форма авторизации" textFill="#121e33">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="600.0" style="-fx-background-color: #e5f4ff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="141.0" layoutY="124.0" text="Пароль">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="141.0" layoutY="53.0" text="Логин">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" layoutX="235.0" layoutY="56.0" promptText="Логин" />
+            <PasswordField fx:id="password" layoutX="236.0" layoutY="127.0" promptText="Пароль" />
+            <Button fx:id="button" layoutX="239.0" layoutY="201.0" mnemonicParsing="false" onAction="#loginUser" prefHeight="37.0" prefWidth="121.0"  text="Войти">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label fx:id="empLabel" layoutX="141.0" layoutY="22.0" prefHeight="20.0" prefWidth="272.0" textFill="#121e33">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+         </children></AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,16 @@
+.button1 {
+    -fx-background-color: "#FAE3D9";
+    -fx-font-size: 24;
+    -fx-border-color: "black";
+    -fx-border-width: 0.2;
+    -fx-max-width: infinity;
+    -fx-max-height: infinity;
+}
+.button2 {
+    -fx-background-color: "#FFB6B9";
+    -fx-font-size: 24;
+    -fx-border-color: "black";
+    -fx-border-width: 0.2;
+    -fx-max-width: infinity;
+    -fx-max-height: infinity;
+}

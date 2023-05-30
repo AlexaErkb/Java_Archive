@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Привет!!!</title>
+    <style>
+        button{
+            width: 200px;
+            height: 50px;
+            border-radius: 4px;
+        }
+        .on{
+            color:#92000a;
+            background-color: #fcfcee;
+        }
+        .off{
+            color:#92000a;
+            background-color: white;
+        }
+    </style>
+</head>
+<body bgcolor="#f5f5dc">
+    <div id="app"></div>
+    <div id="name"></div>
+      
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        class ClickButton extends React.Component {
+             
+           constructor(props) {
+               super(props);
+               this.state = {class: "off", label: "Нажми"};
+                 
+               this.press = this.press.bind(this);
+           }
+           press(){
+               let className = (this.state.class==="off")?"on":"off";
+               let labelName= (this.state.label==="Нажми")?"Молодец!":"Нажми";
+               this.setState({class: className, label: labelName});
+           }
+           render() {
+               return (<div align='center'><font face='Verdana'><button onClick={this.press} className={this.state.class}>{this.state.label}</button></font></div>);
+           }
+        }
+
+        const Hello = (props) => {
+     
+        const {name, age} = props;
+        return(<div align='center'>
+            <font face='consolas'>
+            <p>Имя: {name}</p>
+            <p>Возраст: {age}</p>
+            </font>
+           </div>);
+        }
+
+        ReactDOM.render(
+        <div align='center'>
+            <img style={{margin:'10px'}} src="ccat.jpg" width="400px"  />
+            <Hello name="Алекса" age="19" />,
+        </div>,
+           document.getElementById("name")
+        )
+         
+        ReactDOM.render(
+           <ClickButton />,
+           document.getElementById("app")
+        )
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
+
+html {
+	font-size: 16px;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	color: #000;
+	background-color: #d9d8e3;
+	min-width: 320px;
+}
+
+.title {
+  	text-align: center;
+  	font-weight: bold;
+  	color: #3b4247;
+  	font-family: 'Verdana';
+  	font-size: 25px;
+}
+
+.info {
+	text-align: center;
+	color: #3b4247;
+	font-size: 20px;
+	font-family: 'Verdana';
+}
+.todo-container {
+  position: relative;
+  width:  500px;
+  height: auto;
+  margin-left: -250px;
+  margin-top: 15px;
+  left: 50%;  
+}
+.list-group-item {
+  postion: relative;
+  height: 50px;
+  font-size: 15px;
+  font-height: 400px;
+}
+
+.todo {
+  font-family: gabriola;
+}
+
+.Comment {
+	flex: 1;
+  	left: 35%;
+  	position: absolute;
+  	padding: 8px;
+	background-color: #fff;
+	border-radius: 30px;
+	align-content: center;
+	align-items: center;
+	text-align: center;
+	width: 30%;
+}
+
+.Avatar {
+	width: 200px;
+	border-radius: 100px;
+	outline: 1.5px solid #000;
+}
+
+.Avatar:hover {
+	width: 250px;
+	border-radius: 150px;
+	outline: 1.5px solid #0bda51;
+}
+
+.UserInfo-name {
+	text-align: center;
+	color: #3b4247;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Verdana';
+}
+
+.Comment-text {
+	text-align: center;
+	color: #3b4247;
+	font-size: 20px;
+	font-family: 'Verdana';
+}
+
+.Comment-date {
+	text-align: center;
+	color: gray;
+	font-size: 15px;
+	font-family: 'Verdana';
+}

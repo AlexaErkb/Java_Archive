@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title></title>
+  </head>
+  <body>
+    <img src="https://ne-kurim.ru/forum/attachments/image-2020-04-05t100255-596-jpg.1162836/" alt="" width='200px'>
+    <img src="https://f.simpleminecraft.ru/uploads/monthly_2021_07/image.png.d48c1608bcd663c575060f6b270379d9.png" alt="" width='200px'>
+    <img src="https://proprikol.ru/wp-content/uploads/2019/08/kartinki-nyashnye-kotiki-15.jpg" alt="" width='200px'>
+    <script type="text/javascript">
+        // по первому клику увеличивает, по второму возвращает обратно
+        function add(){
+            var img = this;
+            img.style.cssText = 'width:'+Number(img.offsetWidth)*2+'px;';
+            img.removeEventListener('click', add);
+            img.addEventListener('click', sub);
+        }
+
+        function sub(){
+            var img = this;
+            img.style.cssText = 'width:'+Number(img.offsetWidth)/2+'px;';
+            img.removeEventListener('click', sub);
+            img.addEventListener('click', add);
+        }
+
+        var imgs = document.querySelectorAll("img");
+        for(var i=0; i<imgs.length; i++){
+            imgs[i].addEventListener('click', add);
+        }
+    </script>
+  </body>
+</html>

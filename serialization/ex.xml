@@ -1,0 +1,1 @@
+<ExampleClass><stringAttr>aa</stringAttr><doubleAttr>22.22</doubleAttr><intattr>17</intattr><date>1681717961554</date><properies><zero>one</zero></properies><anEnum>TYPE1</anEnum><listAttr><listAttr><intAttr>54</intAttr><doubleAttr>2.2</doubleAttr></listAttr><listAttr><intAttr>11</intAttr><doubleAttr>22.36</doubleAttr></listAttr></listAttr></ExampleClass>

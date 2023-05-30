@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+	<link rel="stylesheet" href="main.css">
+    <style type="text/css">
+      .la {
+        color: white;
+      }
+      .bu {
+        ouline: 0;
+        outline-offset: 0;
+      }
+      .icon {
+        list-style: '👾';
+      }
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+    </style>
+</head>
+<body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<div id="app"></div>
+    <div id="app3"></div>
+	<script type="text/babel">
+
+        function App() {
+        const [time, setTime] = React.useState(0);
+        const countDownDate = 0;
+        const [count, setCount] = React.useState(1);
+        const [todos, setTodos] = React.useState([]);
+        const tte = {
+            background:'#c6dfe1',
+            top:"0",
+            left: "0",
+            width:"100%", 
+            height: "50px",
+            flex:1,
+        }
+    const [ userInput, setUserInput ] = React.useState('');
+    const handleChange = (e) => {
+        setUserInput(e.currentTarget.value)
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+       
+        if (userInput==''){
+            return
+        }  
+        setCount(count+1) 
+        setTodos([
+                    ...todos, 
+                    {
+                        id: Date.now(),
+                        text:userInput
+                    }
+                ])
+                return todos
+    }
+   
+      return (
+      <div align='center'>
+              <h3 className="title">Делишки</h3>
+              <form onSubmit={handleSubmit} style={{borderRadius:'5px'}}>
+                <label htmlFor="new-todo" className="info">
+                  Что будем делать?
+                </label>
+                <input
+                style={{marginTop: '20px', borderRadius:'20px', marginBottom:'10px', marginRight:'5px', marginLeft:'5px'}}
+                  id="new-todo"
+                  onChange={handleChange}
+                  value={userInput}
+                />
+                <button style={{borderRadius:'5px', backgroundColor: '#d0d1d9'}} className="bu">
+                  Добавить #{count}
+                </button>
+                <p className="info">Список дел: </p>
+                <div> 
+                    {todos.map((item, i ) => (
+                         <div key={i}> 
+                            <li className="icon">{item.text}</li>
+                         </div>
+                    ))}
+                </div>
+            </form>
+        </div>
+      );
+    }
+           
+    ReactDOM.createRoot(
+        document.getElementById("app")
+    )
+    .render(
+        <App />
+    )
+    </script>
+    <script type="text/babel">
+        function withHover(Component) {
+            return class WithHover extends React.Component {
+                state = { hovering: false }
+                mouseOver = () => this.setState({ hovering: true })
+                mouseOut = () => this.setState({ hovering: false })
+                render() {
+                return (
+                <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+                    <Component hovering={this.state.hovering} />
+                </div>
+                );
+                }
+            }
+        }
+
+        function Info ({ hovering, height,id }) {
+            return (
+            <div>
+            {hovering === true
+            ? <Datecomment id={id} />
+            : (<div className="Comment-text">
+                Приветик
+            </div>)}
+            </div>
+            )
+        }
+
+        function Datecomment () {
+            return (<div className="Comment-text">
+                {comment.date.toLocaleDateString()}
+            </div>)
+        }
+
+        class Comment extends React.Component {
+
+        render() {
+            return (
+            <div className="Comment" align='center'>
+            <div>
+                <img className="Avatar"
+                    src={this.props.author.avatarUrl}
+                    alt={this.props.author.name} />
+                <div className="UserInfo-name">
+                {this.props.author.name}
+                </div>
+            </div>
+            <Data/>
+            </div>
+        );
+        }
+        };
+
+        const comment = {
+        date: new Date(),
+        text: 'Приветик!',
+        author: {
+            name: 'Alexa',
+            avatarUrl: './images/cat.jpg'
+        }
+        };
+        const Data = withHover(Info)
+        ReactDOM.render(
+        <Comment  date={comment.date}
+            text={comment.text}
+            author={comment.author} />,
+        document.getElementById('app3')
+        );
+
+    </script>
+</body>
+</html>

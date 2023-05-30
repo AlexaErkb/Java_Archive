@@ -1,0 +1,10 @@
+<hibernate-mapping>
+
+    <class name="hibernate.using.xml.Department" table="department">
+        <id name="id" column="id" type="int" />
+        <property name="department_name" column="department_name" type="string" />
+        <property name="description" column="description" type="string" />
+        <property name="director" column="director" type="int" />
+    </class>
+
+</hibernate-mapping>

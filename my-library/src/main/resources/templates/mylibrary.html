@@ -1,0 +1,108 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+    <script src="js/script.js"></script>
+    <title>My Library</title>
+</head>
+<body>
+    <div th:replace="~{header::header}">
+    </div>
+    <!-- ! add to css file -->
+    <div style="height: 50vh; overflow-y: scroll;" class="bg-dark">
+    <table class="table text-white">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Publish</th>
+                <th scope="col">Issuance</th>
+                <th scope="col">Student fullname</th>
+                <th scope="col">Returning</th>
+            </tr>
+        </thead>
+        
+            <tbody id="values">
+                
+                <div th:each="el, iter:${books}">
+                <tr class="book-row">
+                    <td><a th:href="'/books/'+${el.id}">Edit</a></td>
+                    <td th:text="${iter.index}+1"></td>
+                    <td class="name" th:text="${el.name}"></td>
+                    <td class="publish" th:text="${el.publish}"></td>
+                    <td class="issuance" th:text="${#dates.format(el.issuance, 'dd-MM-yyyy')}"></td>
+                    <td class="stdnt_name" th:text="${el.stdnt_name}"></td>
+                    <td class="returning" th:text="${#dates.format(el.returning, 'dd-MM-yyyy')}"></td>
+                                
+                </tr>
+                </div>
+
+            </tbody>
+    </table>
+    </div>
+    <form action="/books/add" method="post"> 
+    <button type="submit" class="btn btn-success btn-lg m-3">Add new book</button>
+    </form>
+    <div class="d-flex flex-row justify-content-around align-items-start" style="width: 100vw;">
+    <canvas id="histogram" width="600" height="250"></canvas>
+    <script th:inline="javascript">
+        let books = [[${ books }]];
+        let issuances = books.map((book) =>new String(book.issuance).slice(0,10))
+        let labels = Array.from(new Set(issuances)).sort()
+        let data = labels.map((label)=>issuances.filter((issuance)=>issuance==label).length)
+        const ctx = document.getElementById('histogram').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Book lending by day',
+                    data: data,
+                    backgroundColor: 'green',
+                }]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize:1
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="search-by-name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="search-by-publish" placeholder="Publish">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="search-by-stdnt_name" placeholder="Student fullname">
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" id="search-by-issuance" placeholder="Issuance">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="search()">Search</button>
+    </div>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="issuance" autocomplete="off" onclick="sortRows()"> Issuance
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="returning" autocomplete="off" onclick="sortRows('returning')"> Returning
+        </label>
+    </div>
+    </div>
+</body>
+</html>
