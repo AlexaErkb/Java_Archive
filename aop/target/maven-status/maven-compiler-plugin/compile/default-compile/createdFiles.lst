@@ -1,0 +1,4 @@
+fa\ru\aop\dao\AccountDAO.class
+fa\ru\aop\aspect\LoggingAspect.class
+fa\ru\aop\entities\Account.class
+fa\ru\aop\Config.class

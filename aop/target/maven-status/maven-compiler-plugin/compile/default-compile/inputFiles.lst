@@ -1,0 +1,5 @@
+D:\ModernProg\aop\src\main\java\fa\ru\aop\AopApplication.java
+D:\ModernProg\aop\src\main\java\fa\ru\aop\entities\Account.java
+D:\ModernProg\aop\src\main\java\fa\ru\aop\dao\AccountDAO.java
+D:\ModernProg\aop\src\main\java\fa\ru\aop\Config.java
+D:\ModernProg\aop\src\main\java\fa\ru\aop\aspect\LoggingAspect.java
